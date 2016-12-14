@@ -43,6 +43,7 @@ public class Trayectos {
 
         int columna = 0;
         boolean registroCompleto = false;
+        sn.nextLine();
         while (sn.hasNext()) {
 
             campo = sn.next();
