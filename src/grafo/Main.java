@@ -7,8 +7,8 @@ package grafo;
 
 import java.io.FileNotFoundException;
 
-public class Practica_grafos_2016 {
-
+public class Main {
+ffeer
     public static void main(String[] args) {
         Trayectos t = new Trayectos();
         try {
