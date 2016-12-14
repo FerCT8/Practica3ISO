@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-//A ver si otra vez?
+//Ahora de git a netbeans
 package grafo;
 
 import java.io.FileNotFoundException;
