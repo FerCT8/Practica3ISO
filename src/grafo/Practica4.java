@@ -9,7 +9,7 @@ package grafo;
 
 import java.io.FileNotFoundException;
 
-public class Main {
+public class Practica4 {
 
     public static void main(String[] args) {
         Trayectos t = new Trayectos();
