@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-//Venga a ver si ahora se cambia 
+//A ver si otra vez?
 package grafo;
 
 import java.io.FileNotFoundException;
