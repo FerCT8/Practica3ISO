@@ -8,7 +8,7 @@ package grafo;
 import java.io.FileNotFoundException;
 
 public class Main {
-ffeer
+
     public static void main(String[] args) {
         Trayectos t = new Trayectos();
         try {
