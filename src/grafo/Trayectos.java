@@ -26,7 +26,7 @@ public class Trayectos {
 
         Scanner sn = new Scanner(new File(file));
         sn.useDelimiter(",");
-        String campo;
+        String dato;
 
         String estacion_origen="";
         String estacion_destino="";
@@ -45,29 +45,29 @@ public class Trayectos {
         sn.nextLine();
         while (sn.hasNext()) {
 
-            campo = sn.next();
+            dato = sn.next();
 
             switch (columna) {
                 case 1:
-                    duracion = Integer.parseInt(campo);
+                    duracion = Integer.parseInt(dato);
                     break;
                 case 4:
-                    estacion_origen = campo;
+                    estacion_origen = dato;
                     break;
                 case 5:
-                    lat_estacion_origen = Float.parseFloat(campo);
+                    lat_estacion_origen = Float.parseFloat(dato);
                     break;
                 case 6:
-                    lon_estacion_origen= Float.parseFloat(campo);
+                    lon_estacion_origen= Float.parseFloat(dato);
                     break;
                 case 7:
-                    estacion_destino= campo;
+                    estacion_destino= dato;
                     break;
                 case 8:
-                    lat_estacion_destino = Float.parseFloat(campo);
+                    lat_estacion_destino = Float.parseFloat(dato);
                     break;
                 case 9:
-                    lon_estacion_destino= Float.parseFloat(campo);
+                    lon_estacion_destino= Float.parseFloat(dato);
                     break;
                 case 13:
                     registroCompleto=true;
@@ -148,7 +148,7 @@ public class Trayectos {
 
         String id_origen, id_destino;
 
-        System.out.println("Escribe el id de la estacion de origen");
+        System.out.println("\nEscribe el id de la estacion de origen");
         id_origen = datos.next();
 
         System.out.println("Escribe el id de la estacion de destino");
@@ -170,17 +170,18 @@ public class Trayectos {
         Vertex<ElementoDecorado>[] estaciones = pedirEstaciones();
 
         if (estaciones == null) {
-            System.out.println("Error, introduce estaciones que existan y que no sean iguales");
+            System.out.println("\nError, introduce estaciones que existan y que no sean iguales");
+            busqueda();
         } else {
             
             Stack<Edge> camino = new Stack<>();
             ShortPath(estaciones[0], estaciones[1], camino);
-
+            System.out.println("\nCamino mas corto");
             while (!camino.isEmpty()) {
                 //El orden de los vertices no es importante, se crea de menor a mayor
                 Vertex[] v = grafo.endVertices(camino.pop());
-                System.out.print(v[0].getID());
-                System.out.print(v[1].getID());
+                System.out.print("-ID_origen: "+v[0].getID());
+                System.out.print("-ID_destino: "+v[1].getID());
                 System.out.println("");
             }
 
