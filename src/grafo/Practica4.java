@@ -7,7 +7,7 @@
 package grafo;
 
 import java.io.FileNotFoundException;
-//fernando cabron
+
 public class Practica4 {
 
     public static void main(String[] args) {
