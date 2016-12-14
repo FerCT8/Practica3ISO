@@ -11,7 +11,6 @@ import graphsDSESIUCLM.Vertex;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
 
