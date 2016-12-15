@@ -17,25 +17,22 @@ public class Practica4 {
                 int menu=leer.nextInt();
                 switch(menu){
                     case 1:
-
-                System.out.println("Estaciones: "+t.numeroEstaciones()); //P1
-                     break;
+                            System.out.println("Estaciones: "+t.numeroEstaciones()); //P1
+                            break;
                     case 2:
-
-                System.out.println("Caminos: "+t.numeroCaminos());//P1
-                break;
+                            System.out.println("Caminos: "+t.numeroCaminos());//P1
+                            break;
                     case 3:
-
-                t.conexiones();//P2
-                t.pedirEstaciones();//P3
-                break;
+                            t.conexiones();//P2
+                            t.pedirEstaciones();//P3
+                            break;
                     case 4:
-                    salir = true;
-                    System.out.println ("El programa ha finalizado");
-                    break;             
+                            salir = true;
+                            System.out.println ("El programa ha finalizado");
+                            break;             
                     default:
-                        System.out.println("Vuelve a marcar una opcion");
-                        break;
+                            System.out.println("Vuelve a marcar una opcion");
+                            break;
                 }
             }while(salir==false);
         } catch (FileNotFoundException ex) {
