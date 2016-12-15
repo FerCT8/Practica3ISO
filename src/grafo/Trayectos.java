@@ -16,7 +16,7 @@ import java.util.Stack;
 
 public class Trayectos {
 
-    private TreeMapGraph<ElementoDecorado, AristaDecorada> grafo;
+    private TreeMapGraph<ElementoDecorado, ElementoDecorado> grafo;
 
     public Trayectos() {
         grafo = new TreeMapGraph<>();
@@ -92,7 +92,7 @@ public class Trayectos {
                     Vertex<ElementoDecorado> v_destino = grafo.insertVertex(ed);
 
                     if (!grafo.areAdjacent(v_origen, v_destino)) {
-                        AristaDecorada de = new AristaDecorada(String.valueOf(eo.getID() + "-" + ed.getID()), duracion);
+                        ElementoDecorado de = new ElementoDecorado(String.valueOf(eo.getID() + "-" + ed.getID()), duracion);
                         grafo.insertEdge(v_origen, v_destino, de);
                     }
 
@@ -117,11 +117,11 @@ public class Trayectos {
     public void conexiones() {
 
         Iterator<Vertex<ElementoDecorado>> vertices = grafo.getVertices();
-        Iterator<Edge<AristaDecorada>> aristas;
+        Iterator<Edge<ElementoDecorado>> aristas;
 
         Vertex<ElementoDecorado> vertice;
         Vertex<ElementoDecorado> verticeOpuesto;
-        Edge<AristaDecorada> arista;
+        Edge<ElementoDecorado> arista;
 
         while (vertices.hasNext()) {
 
@@ -194,7 +194,7 @@ public class Trayectos {
 
         boolean noEnd = !v.equals(z);
         Edge e;
-        Iterator<Edge<AristaDecorada>> it;
+        Iterator<Edge<ElementoDecorado>> it;
         Vertex<ElementoDecorado> w;
 
         v.getElement().setVisitado(true);

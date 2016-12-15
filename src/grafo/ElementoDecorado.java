@@ -9,14 +9,16 @@ import graphsDSESIUCLM.Element;
 
 public class ElementoDecorado<T> implements Element {
 
-    private String id;
+   private String id;
     private T estacion;
-    private boolean visitado; 
+    private boolean visitado;
+    private int duracionTiempo;
     
     public ElementoDecorado(String id, T estacion){
         this.id=id;
         this.estacion=estacion;
         visitado=false;
+        
     }
     
     @Override
@@ -40,9 +42,17 @@ public class ElementoDecorado<T> implements Element {
         this.visitado = visitado;
     }
     
+    
+    public int getDuracion() {
+        return duracionTiempo;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracionTiempo = duracion;
+    }
+    
     public String toString(){
         return estacion.toString();
     }
-    
-    
+
 }
