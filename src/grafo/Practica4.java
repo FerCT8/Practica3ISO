@@ -10,21 +10,21 @@ public class Practica4 {
         Trayectos t = new Trayectos();
         boolean salir = false;
         try {
-            t.rellenarGrafo("trayectos.csv"); //P1
+            t.rellenarGrafo("trayectos.csv");
             do {
                 System.out.println("\nElige una opcion:");
                 System.out.println("1: Muestra estaciones\n"+ "2: Muestra caminos\n"+"3: Muestra el camino mas corto entre dos estaciones\n"+"4: Salir del programa");
                 int menu=leer.nextInt();
                 switch(menu){
                     case 1:
-                            System.out.println("Estaciones: "+t.numeroEstaciones()); //P1
+                            System.out.println("Estaciones: "+t.numeroEstaciones());
                             break;
                     case 2:
-                            System.out.println("Caminos: "+t.numeroCaminos());//P1
+                            System.out.println("Caminos: "+t.numeroCaminos());
                             break;
                     case 3:
-                            t.conexiones();//P2
-                            t.pedirEstaciones();//P3
+                            t.conexiones();
+                            t.pedirEstaciones();
                             break;
                     case 4:
                             salir = true;
