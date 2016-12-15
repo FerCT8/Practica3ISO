@@ -204,7 +204,7 @@ public class Trayectos {
               }
             }
             else {
-              System.out.println("\nAt least one of the nodes is not in the graph");
+              System.out.println("\nUno de las dos estaciones escritas no esta en el grafo");
             }
 
     }
