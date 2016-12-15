@@ -14,7 +14,7 @@ public class Practica4 {
         do {
         try {
             t.rellenarGrafo("trayectos.csv"); //P1
-            System.out.println("Elige una opcion:");
+            System.out.println("\nElige una opcion:");
             System.out.println("1: Muestra estaciones\n"+ "2: Muestra caminos\n"+"3: Muestra el camino mas corto entre dos estaciones\n"+"4: Salir del programa");
             int menu=leer.nextInt();
             switch(menu){
