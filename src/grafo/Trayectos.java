@@ -6,11 +6,14 @@
 package grafo;
 
 import graphsDSESIUCLM.Edge;
+import graphsDSESIUCLM.Graph;
 import graphsDSESIUCLM.TreeMapGraph;
 import graphsDSESIUCLM.Vertex;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -92,8 +95,7 @@ public class Trayectos {
                     Vertex<ElementoDecorado> v_destino = grafo.insertVertex(ed);
 
                     if (!grafo.areAdjacent(v_origen, v_destino)) {
-                        ElementoDecorado de = new ElementoDecorado(String.valueOf(eo.getID() + "-" + ed.getID()), duracion);
-                        grafo.insertEdge(v_origen, v_destino, de);
+                        grafo.insertEdge(v_origen, v_destino);
                     }
 
                 }
@@ -142,8 +144,14 @@ public class Trayectos {
 
     }
 
-    private Vertex<ElementoDecorado>[] pedirEstaciones() {
-
+    public void pedirEstaciones() {
+        
+        ElementoDecorado startNode, endNode, nx, node = null;
+        Iterator<Vertex<ElementoDecorado>> it;
+        Stack <ElementoDecorado> sp = new Stack();
+        Vertex<ElementoDecorado> aux, s = null, t = null;
+        int size;
+        boolean bool1 = true, bool2 = true;
         Scanner datos = new Scanner(System.in);
 
         String id_origen, id_destino;
@@ -155,37 +163,49 @@ public class Trayectos {
         id_destino = datos.next();
 
         if (grafo.getVertex(id_origen) != null && grafo.getVertex(id_destino) != null && !id_origen.equals(id_destino)) {
-            Vertex<ElementoDecorado>[] estaciones = new Vertex[2];
-            estaciones[0] = grafo.getVertex(id_origen);
-            estaciones[1] = grafo.getVertex(id_destino);
-            return estaciones;
-        }
-
-        return null;
-
-    }
-
-    public void busqueda() {
-
-        Vertex<ElementoDecorado>[] estaciones = pedirEstaciones();
-
-        if (estaciones == null) {
-            System.out.println("\nError, introduce estaciones que existan y que no sean iguales");
-            busqueda();
-        } else {
-            
-            Stack<Edge> camino = new Stack<>();
-            ShortPath(estaciones[0], estaciones[1], camino);
-            System.out.println("\nCamino mas corto");
-            while (!camino.isEmpty()) {
-                //El orden de los vertices no es importante, se crea de menor a mayor
-                Vertex[] v = grafo.endVertices(camino.pop());
-                System.out.print("-ID_origen: "+v[0].getID());
-                System.out.print("-ID_destino: "+v[1].getID());
-                System.out.println("");
+        startNode=grafo.getVertex(id_origen).getElement();
+        endNode=grafo.getVertex(id_destino).getElement();
+        it = grafo.getVertices();
+            while (it.hasNext() && (bool1 || bool2)) {
+              aux = it.next();
+              nx = aux.getElement();
+              if (nx.equals(startNode)) {
+               s = aux;
+               bool1 = false;
+              }
+              if (nx.equals(endNode)) {
+                t = aux;
+                bool2 = false;
+              }
             }
-
         }
+            if (!(bool1 || bool2)) {
+              node = pathBFS(grafo, s, t);
+
+              if (node.getParent() == null) {
+                System.out.println("\nThere is no path");
+              } else {
+                System.out.println("\nPath");
+                while (node.getParent() != null) {
+                  sp.push(node);
+                  node = node.getParent();
+                }
+                sp.push(node);
+
+                size = sp.size();
+                for (int i = 0; i<size-1; i++){
+                  node = sp.pop();
+                  System.out.print(node.getEstacion().toString() + "("
+                              + node.getDuracion() + ")" + "-");
+                }
+                node = sp.pop();
+                System.out.print(node.getEstacion().toString() + "("
+                              + node.getDuracion() + ")");
+              }
+            }
+            else {
+              System.out.println("\nAt least one of the nodes is not in the graph");
+            }
 
     }
 
@@ -214,5 +234,33 @@ public class Trayectos {
 
         return noEnd;
     }
+    public static ElementoDecorado pathBFS(Graph g,Vertex<ElementoDecorado> s,Vertex<ElementoDecorado> t) {
+        Queue<Vertex<ElementoDecorado>> q = new LinkedList();
+        boolean noEnd = true;
+        Vertex<ElementoDecorado> u, v = null;
+        Edge e;
+        Iterator<Edge> it;
+
+        s.getElement().setVisitado(true);
+        q.offer(s);
+        while (!q.isEmpty() && noEnd) {
+          u = q.poll();
+          it = g.incidentEdges(u);
+          while (it.hasNext() && noEnd) {
+            e = it.next();
+            v = g.opposite(u, e);
+            if (!(v.getElement()).isVisitado()) {
+              (v.getElement()).setVisitado(true);
+              (v.getElement()).setParent(u.getElement());
+              (v.getElement()).setDuracion(((u.getElement()).getDuracion()) + 1);
+              q.offer(v);
+              noEnd = !(v.getElement().equals(t.getElement()));
+            }
+          }
+        }
+        if (noEnd)
+          v.getElement().setParent(null);
+        return v.getElement();
+      }
 
 }

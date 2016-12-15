@@ -13,12 +13,14 @@ public class ElementoDecorado<T> implements Element {
     private T estacion;
     private boolean visitado;
     private int duracionTiempo;
+    private ElementoDecorado<T> parent;
     
     public ElementoDecorado(String id, T estacion){
         this.id=id;
         this.estacion=estacion;
         visitado=false;
-        
+        parent = null;
+        duracionTiempo = 0;
     }
     
     @Override
@@ -41,7 +43,12 @@ public class ElementoDecorado<T> implements Element {
     public void setVisitado(boolean visitado) {
         this.visitado = visitado;
     }
-    
+    public ElementoDecorado<T> getParent() {
+        return parent;
+      }
+    public void setParent(ElementoDecorado<T> u) {
+      parent = u;
+    }
     
     public int getDuracion() {
         return duracionTiempo;
@@ -50,7 +57,11 @@ public class ElementoDecorado<T> implements Element {
     public void setDuracion(int duracion) {
         this.duracionTiempo = duracion;
     }
-    
+    public boolean equals (Object n) {
+        return (id.equals(((ElementoDecorado) n).getID())
+        && estacion.equals(((ElementoDecorado<T>) n).getEstacion()));
+    }
+    @Override
     public String toString(){
         return estacion.toString();
     }

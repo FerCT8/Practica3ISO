@@ -17,7 +17,7 @@ public class Practica4 {
             System.out.println("Estaciones: "+t.numeroEstaciones()); //P1
             System.out.println("Caminos: "+t.numeroCaminos());//P1
             t.conexiones();//P2
-            t.busqueda();//P3
+            t.pedirEstaciones();//P3
         } catch (FileNotFoundException ex) {
             System.out.println(ex.getMessage());
         }
