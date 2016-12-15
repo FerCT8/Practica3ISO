@@ -208,32 +208,6 @@ public class Trayectos {
             }
 
     }
-
-    
-    public boolean ShortPath(Vertex<ElementoDecorado> v, Vertex<ElementoDecorado> z, Stack<Edge> camino) {
-
-        boolean noEnd = !v.equals(z);
-        Edge e;
-        Iterator<Edge<ElementoDecorado>> it;
-        Vertex<ElementoDecorado> w;
-
-        v.getElement().setVisitado(true);
-
-        it = grafo.incidentEdges(v);
-        while (it.hasNext() && noEnd) {
-            e = it.next();
-            w = grafo.opposite(v, e);
-            if (!w.getElement().isVisitado()) {
-                camino.push(e);
-                noEnd = ShortPath(w, z, camino);
-                if (noEnd) {
-                    camino.pop();
-                }
-            }
-        }
-
-        return noEnd;
-    }
     public static ElementoDecorado pathBFS(Graph g,Vertex<ElementoDecorado> s,Vertex<ElementoDecorado> t) {
         Queue<Vertex<ElementoDecorado>> q = new LinkedList();
         boolean noEnd = true;
