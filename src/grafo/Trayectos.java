@@ -38,8 +38,8 @@ public class Trayectos {
         float lat_estacion_destino=0;
         float lon_estacion_destino=0;
         int duracion=0;
-        Estacion origen=null;
-        Estacion destino=null;
+        Estacion origen;
+        Estacion destino;
         ElementoDecorado eo;
         ElementoDecorado ed;
 
