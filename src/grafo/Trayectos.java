@@ -183,9 +183,9 @@ public class Trayectos {
               node = pathBFS(grafo, s, t);
 
               if (node.getParent() == null) {
-                System.out.println("\nThere is no path");
+                System.out.println("\nNo hya camino entre estas dos estaciones");
               } else {
-                System.out.println("\nPath");
+                System.out.println("\nCamino más corto ");
                 while (node.getParent() != null) {
                   sp.push(node);
                   node = node.getParent();
