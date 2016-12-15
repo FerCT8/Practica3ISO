@@ -129,15 +129,15 @@ public class Trayectos {
 
             vertice = vertices.next();
 
-            System.out.println( vertice.getElement());
-           
+            System.out.println("\nEstacion: "+vertice.getElement());
+            System.out.println("Estaciones directas: ");
             aristas = grafo.incidentEdges(vertice);
             while (aristas.hasNext()) {
                 arista = aristas.next();
 
                 verticeOpuesto = grafo.opposite(vertice, arista);
 
-                System.out.println("                " + verticeOpuesto.getElement() + "  ");
+                System.out.println("                   " + verticeOpuesto.getElement() + "  ");
 
             }
         }
