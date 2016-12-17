@@ -1,13 +1,10 @@
 package Presentacion;
 import Dominio.Administrador;
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import java.awt.FlowLayout;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -16,11 +13,6 @@ import javax.swing.JButton;
 import java.awt.Color;
 
 import javax.swing.JTextPane;
-
-import Dominio.GestorAcceso;
-import Dominio.Empleados;
-import Dominio.GestorUsuarios;
-import Presentacion.IUAutenticacion;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -32,7 +24,7 @@ public class IUAdministracion extends JFrame {
 	private JTextField textFieldPassword;
         private JTextField textFieldDNI;
         private JTextField textFieldNombre;
-        private JTextField textFieldPermisos;
+        private JTextField textFieldPermiso;
         
 	private JTextPane textPane;
 
@@ -66,43 +58,51 @@ public class IUAdministracion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblLogin = new JLabel("Password:");
-		lblLogin.setBounds(6, 81, 69, 16);
+		JLabel lblLogin = new JLabel("Login:");
+		lblLogin.setBounds(6, 0, 69, 16);
 		contentPane.add(lblLogin);
-		
-		JLabel label = new JLabel("Login:");
-		label.setBounds(6, 37, 69, 16);
-		contentPane.add(label);
+                JLabel lblPassword = new JLabel("Password:");
+		lblPassword.setBounds(6, 30, 69, 16);
+		contentPane.add(lblPassword);
+                JLabel lblDNI = new JLabel("DNI:");
+		lblDNI.setBounds(6, 60, 69, 16);
+		contentPane.add(lblDNI);
+                JLabel lblNombre = new JLabel("Nombre:");
+		lblNombre.setBounds(6, 90, 69, 16);
+		contentPane.add(lblNombre);
+                JLabel lblPermiso = new JLabel("Permiso:");
+		lblPermiso.setBounds(6, 120, 69, 16);
+		contentPane.add(lblPermiso);
 		
 		JLabel label_1 = new JLabel("Estado");
 		label_1.setForeground(Color.RED);
-		label_1.setBounds(6, 126, 61, 16);
+		label_1.setBounds(6, 160, 61, 16);
 		contentPane.add(label_1);
 		
 		textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(87, 31, 134, 28);
+		textFieldLogin.setBounds(87, 0, 134, 28);
 		contentPane.add(textFieldLogin);
 		textFieldLogin.setColumns(10);
 		
 		textFieldPassword = new JTextField();
 		textFieldPassword.setColumns(10);
-		textFieldPassword.setBounds(87, 75, 134, 28);
+		textFieldPassword.setBounds(87, 30, 134, 28);
 		contentPane.add(textFieldPassword);
                 
-		textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(87, 31, 134, 28);
-		contentPane.add(textFieldLogin);
-		textFieldLogin.setColumns(10);
+		textFieldDNI = new JTextField();
+		textFieldDNI.setBounds(87, 60, 134, 28);
+		contentPane.add(textFieldDNI);
+		textFieldDNI.setColumns(10);
                 
-                textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(87, 31, 134, 28);
-		contentPane.add(textFieldLogin);
-		textFieldLogin.setColumns(10);
+                textFieldNombre = new JTextField();
+		textFieldNombre.setBounds(87, 90, 134, 28);
+		contentPane.add(textFieldNombre);
+		textFieldNombre.setColumns(10);
                 
-                textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(87, 31, 134, 28);
-		contentPane.add(textFieldLogin);
-		textFieldLogin.setColumns(10);
+                textFieldPermiso = new JTextField();
+		textFieldPermiso.setBounds(87, 120, 134, 28);
+		contentPane.add(textFieldPermiso);
+		textFieldPermiso.setColumns(10);
                 
 		textPane = new JTextPane();
 		textPane.setToolTipText("Panel para mostrar el restultado de la comprobaci\u00F3n de login o las excepciones lanzadas");
@@ -119,12 +119,12 @@ public class IUAdministracion extends JFrame {
 				//Se deber‡ reportar en el panel de estado el resultado de la inserci—n. Tanto su exito
 				//como cualquier excepci—n que pueda surgir.
 				
-				String Login = "Juan";//textFieldLogin.getText();
-				String Password = "Juan";// textFieldPassword.getText();
-                                String DNI =  "12345768";//textFieldPassword.getText();
-                                String Nombre =  "Nombre";//textFieldPassword.getText();
-                                //String Permission = textFieldPassword.getText();
-                                int Permiso=3;//Integer.parseInt(Permission);
+				String Login = textFieldLogin.getText();
+				String Password = textFieldPassword.getText();
+                                String DNI =  textFieldDNI.getText();
+                                String Nombre = textFieldNombre.getText();
+                                String Permission = textFieldPermiso.getText();
+                                int Permiso=3;Integer.parseInt(Permission);
 				
 				try {
 					 if(Login.equals("") || Password.equals("")){
