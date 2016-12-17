@@ -2,18 +2,14 @@ package Dominio;
 
 public class GestorUsuarios {
 
-	public void TipoPermiso() {
-		// TODO - implement GestorUsuarios.TipoPermiso
-		throw new UnsupportedOperationException();
-	}
+    public Empleados ComprobarEmpleado(String login, String password) throws Exception {
 
-	/**
-	 * 
-	 * @param ID
-	 */
-	public void ComprobarEmpleado(int ID) {
-		// TODO - implement GestorUsuarios.ComprobarEmpleado
-		throw new UnsupportedOperationException();
-	}
+        Empleados e = null;
+        if (Empleados.read(login, password) != null) {
+            e = new Empleados(login, password);
+        }
+        return e;
+
+    }
 
 }

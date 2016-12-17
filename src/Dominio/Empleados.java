@@ -1,52 +1,61 @@
 package Dominio;
 
+import Persistencia.AgenteUsuarios;
+import java.util.Vector;
+
 public class Empleados {
 
-	private int Login;
-	private int Password;
-	private int DNI;
-	private int Nombre;
-	private int Apellidos;
+	private String Login;
+	private String Password;
+	private String DNI;
+	private String Nombre;
+	private String Apellidos;
 	private int Telefono;
 	private int Permiso;
 
-	public int getLogin() {
+    Empleados(String Login, String Password) {
+        this.Login=Login;
+        this.Password=Password;
+       
+    }
+
+	public String getLogin() {
 		return this.Login;
 	}
 
-	public void setLogin(int Login) {
+	public void setLogin(String Login) {
 		this.Login = Login;
 	}
 
-	public int getPassword() {
+	public String getPassword() {
 		return this.Password;
 	}
 
-	public void setPassword(int Password) {
+	public void setPassword(String Password) {
 		this.Password = Password;
 	}
 
-	public int getDNI() {
+	public String getDNI() {
 		return this.DNI;
 	}
 
-	public void setDNI(int DNI) {
+	public void setDNI(String DNI) {
 		this.DNI = DNI;
 	}
 
-	public int getNombre() {
+	public String getNombre() {
 		return this.Nombre;
 	}
 
-	public void setNombre(int Nombre) {
+	public void setNombre(String Nombre) {
 		this.Nombre = Nombre;
 	}
 
-	public int getApellidos() {
+	public String getApellidos() {
 		return this.Apellidos;
 	}
 
-	public void setApellidos(int Apellidos) {
+	public void setApellidos(String Apellidos) {
 		this.Apellidos = Apellidos;
 	}
 
@@ -64,6 +73,24 @@ public class Empleados {
 
 	public void setPermiso(int Permiso) {
 		this.Permiso = Permiso;
+	}
+        
+        public static Empleados read(String login, String password) throws Exception{
+		String l,g;
+		Empleados u = null;
+		Vector<Object> aux = null;
+		
+		String SQL_Consulta = "SELECT login, pass FROM usuario WHERE login = '"+login+"' AND pass = '"+password+"';";
+		
+		AgenteUsuarios a = AgenteUsuarios.getAgente();
+		
+		Vector<Object> res = a.select(SQL_Consulta);
+		
+		if (res.size() == 1){
+				aux = (Vector<Object>) res.elementAt(0);
+				u = new Empleados((String) aux.elementAt(0), (String) aux.elementAt(1));
+		}
+		return u;
 	}
 
 }
