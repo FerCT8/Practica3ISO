@@ -2,14 +2,12 @@ package Dominio;
 
 public class GestorAcceso {
 
-	/**
-	 * 
-	 * @param Login
-	 * @param Password
-	 */
-	public void Autenticar(int Login, int Password) {
-		// TODO - implement GestorAcceso.Autenticar
-		throw new UnsupportedOperationException();
+   public static boolean autenticar(String login, String password) throws Exception{
+		boolean autenticado = false;
+		if(Empleados.read(login, password) != null)
+			autenticado = true;
+		return autenticado;
 	}
+	
 
 }

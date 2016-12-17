@@ -1,6 +1,7 @@
 package Dominio;
 
 public class GestorUsuarios {
+    
 
     public Empleados ComprobarEmpleado(String login, String password) throws Exception {
 
@@ -11,5 +12,6 @@ public class GestorUsuarios {
         return e;
 
     }
-
+    
+    
 }
