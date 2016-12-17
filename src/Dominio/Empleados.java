@@ -1,4 +1,4 @@
-package StaticView.Dominio;
+package Dominio;
 
 public class Empleados {
 

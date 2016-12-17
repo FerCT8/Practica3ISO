@@ -1,4 +1,4 @@
-package StaticView.Persistencia;
+package Persistencia;
 
 public class AgenteListado {
 
