@@ -70,7 +70,9 @@ public class AgenteUsuarios {
 
             usuario.add(res.getString("Login"));
             usuario.add(res.getString("Password"));
-
+            usuario.add(res.getString("DNI"));
+            usuario.add(res.getString("Nombre"));
+            usuario.add(res.getInt("Permiso"));
             lista.add(usuario);
         }
         return lista;

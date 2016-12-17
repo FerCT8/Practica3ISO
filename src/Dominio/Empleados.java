@@ -70,7 +70,7 @@ public class Empleados {
         Empleados u = null;
         Vector<Object> aux = null;
 
-        String SQL_Consulta = "SELECT Login, Password FROM practica3db.empleados WHERE Login = '" + login + "' AND Password = '" + password + "';";
+        String SQL_Consulta = "SELECT * FROM practica3db.empleados WHERE Login = '" + login + "' AND Password = '" + password + "';";
 
         AgenteUsuarios a = AgenteUsuarios.getAgente();
 
@@ -78,7 +78,7 @@ public class Empleados {
 
         if (res.size() == 1) {
             aux = (Vector<Object>) res.elementAt(0);
-            u = new Empleados((String) aux.elementAt(0), (String) aux.elementAt(1));
+            u = new Empleados((String) aux.elementAt(0), (String) aux.elementAt(1),(String) aux.elementAt(2),(String) aux.elementAt(3),(int) aux.elementAt(4));
         }
         return u;
     }
