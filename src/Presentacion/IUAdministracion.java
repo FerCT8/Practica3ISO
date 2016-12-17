@@ -28,27 +28,6 @@ public class IUAdministracion extends JFrame {
         
 	private JTextPane textPane;
 
-	/**
-	 * Launch the application.
-	 
-	
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					JFrameNuevoUsuario frame = new JFrameNuevoUsuario();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	*/
-	
-	/**
-	 * Create the frame.
-	 */
 	public IUAdministracion() {
 		setTitle("Dar de alta a un nuevo usuario");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
