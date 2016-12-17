@@ -1,4 +1,5 @@
 package Presentacion;
+
 import Dominio.Administrador;
 
 import javax.swing.JFrame;
@@ -103,7 +104,7 @@ public class IUAdministracion extends JFrame {
                                 String DNI =  textFieldDNI.getText();
                                 String Nombre = textFieldNombre.getText();
                                 String Permission = textFieldPermiso.getText();
-                                int Permiso=3;Integer.parseInt(Permission);
+                                int Permiso=Integer.parseInt(Permission);
 				
 				try {
 					 if(Login.equals("") || Password.equals("")){
