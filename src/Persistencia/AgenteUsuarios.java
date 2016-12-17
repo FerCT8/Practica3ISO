@@ -8,7 +8,7 @@ public class AgenteUsuarios {
 
     protected static AgenteUsuarios mInstancia = null;
     protected static Connection mBD;
-    private static String url = null;
+    private static String url = "jdbc:mysql://localhost:3306/practica3bd?user=root&password=admin";
     private static String driver = "com.mysql.jdbc.Driver";
 
     public static AgenteUsuarios getAgente() throws Exception {
