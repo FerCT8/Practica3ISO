@@ -12,6 +12,13 @@ public class GestorUsuarios {
         return e;
 
     }
-    
+    public static boolean nuevoUsuario(String Login, String Password, String DNI, String Nombre, int Permiso) throws Exception{
+		boolean insertado = false;
+		
+		Empleados u = new Empleados(Login,Password,DNI,Nombre,Permiso);
+		if(u.insert() ==1)
+			insertado = true;
+		return insertado;		
+	}
     
 }

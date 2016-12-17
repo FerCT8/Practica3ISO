@@ -9,8 +9,6 @@ public class Empleados {
     String Password;
     private String DNI;
     private String Nombre;
-    private String Apellidos;
-    private int Telefono;
     private int Permiso;
 
     Empleados(String Login, String Password) {
@@ -18,13 +16,11 @@ public class Empleados {
         this.Password = Password;
     }
 
-    Empleados(String Login, String Password, String DNI, String Nombre, String Apellidos, int Telefono, int Permiso) {
+    Empleados(String Login, String Password, String DNI, String Nombre, int Permiso) {
         this.Login = Login;
         this.Password = Password;
         this.DNI = DNI;
         this.Nombre = Nombre;
-        this.Apellidos = Apellidos;
-        this.Telefono = Telefono;
         this.Permiso = Permiso;
 
     }
@@ -61,22 +57,6 @@ public class Empleados {
         this.Nombre = Nombre;
     }
 
-    public String getApellidos() {
-        return this.Apellidos;
-    }
-
-    public void setApellidos(String Apellidos) {
-        this.Apellidos = Apellidos;
-    }
-
-    public int getTelefono() {
-        return this.Telefono;
-    }
-
-    public void setTelefono(int Telefono) {
-        this.Telefono = Telefono;
-    }
-
     public int getPermiso() {
         return this.Permiso;
     }
@@ -90,7 +70,7 @@ public class Empleados {
         Empleados u = null;
         Vector<Object> aux = null;
 
-        String SQL_Consulta = "SELECT login, pass FROM usuario WHERE login = '" + login + "' AND pass = '" + password + "';";
+        String SQL_Consulta = "SELECT Login, Password FROM practica3db.empleados WHERE Login = '" + login + "' AND Password = '" + password + "';";
 
         AgenteUsuarios a = AgenteUsuarios.getAgente();
 
@@ -101,6 +81,17 @@ public class Empleados {
             u = new Empleados((String) aux.elementAt(0), (String) aux.elementAt(1));
         }
         return u;
+    }
+    public int insert() throws Exception {
+
+        String SQL_Consulta = "INSERT INTO practica3db.empleados VALUES('" + this.Login + "','" + this.Password+"','" 
+        + this.getDNI()+ "','" + this.getNombre()+"','" + this.getPermiso()+"')" ;
+
+        AgenteUsuarios a = AgenteUsuarios.getAgente();
+
+        a.Insert(SQL_Consulta);
+
+        return 1;
     }
 
 }

@@ -8,7 +8,7 @@ public class AgenteUsuarios {
 
     protected static AgenteUsuarios mInstancia = null;
     protected static Connection mBD;
-    private static String url = "jdbc:mysql://localhost:3306/practica3bd?user=root&password=admin";
+    private static String url = "jdbc:mysql://localhost:3306/practica3db?user=root&password=admin";
     private static String driver = "com.mysql.jdbc.Driver";
 
     public static AgenteUsuarios getAgente() throws Exception {
@@ -68,8 +68,8 @@ public class AgenteUsuarios {
 
             Vector<Object> usuario = new Vector<Object>();
 
-            usuario.add(res.getString("login"));
-            usuario.add(res.getString("pass"));
+            usuario.add(res.getString("Login"));
+            usuario.add(res.getString("Password"));
 
             lista.add(usuario);
         }
