@@ -20,7 +20,8 @@ public class Administrador extends Empleados {
 
     public int insert() throws Exception {
 
-        String SQL_Consulta = "INSERT INTO usuario VALUES('" + this.Login + "','" + this.Password+"','" + this.getDNI()+ "','" + this.Password+"')" ;
+        String SQL_Consulta = "INSERT INTO usuario VALUES('" + this.Login + "','" + this.Password+"','" 
+        + this.getDNI()+ "','" + this.getNombre()+"','" + this.getApellidos()+ "','" + this.getTelefono()+"','" + this.getPermiso()+"')" ;
 
         AgenteUsuarios a = AgenteUsuarios.getAgente();
 
