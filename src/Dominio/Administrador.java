@@ -2,6 +2,10 @@ package Dominio;
 
 public class Administrador extends Empleados {
 
+    public Administrador(String Login, String Password) {
+        super(Login, Password);
+    }
+
 	/**
 	 * 
 	 * @param ID
