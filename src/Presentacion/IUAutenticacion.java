@@ -146,7 +146,7 @@ public class IUAutenticacion extends JFrame {
 			
 			public void actionPerformed(ActionEvent arg0) {
 				IUAdministracion frame = new IUAdministracion();
-				//frame.setVisible(true);
+				frame.setVisible(true);
 			}
 		});
 		btnNuevoUsuario.setBounds(264, 166, 117, 29);

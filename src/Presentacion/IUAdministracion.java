@@ -1,4 +1,5 @@
 package Presentacion;
+import Dominio.Administrador;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -29,6 +30,10 @@ public class IUAdministracion extends JFrame {
 	private JPanel contentPane;
 	private JTextField textFieldLogin;
 	private JTextField textFieldPassword;
+        private JTextField textFieldDNI;
+        private JTextField textFieldNombre;
+        private JTextField textFieldPermisos;
+        
 	private JTextPane textPane;
 
 	/**
@@ -83,7 +88,22 @@ public class IUAdministracion extends JFrame {
 		textFieldPassword.setColumns(10);
 		textFieldPassword.setBounds(87, 75, 134, 28);
 		contentPane.add(textFieldPassword);
-		
+                
+		textFieldLogin = new JTextField();
+		textFieldLogin.setBounds(87, 31, 134, 28);
+		contentPane.add(textFieldLogin);
+		textFieldLogin.setColumns(10);
+                
+                textFieldLogin = new JTextField();
+		textFieldLogin.setBounds(87, 31, 134, 28);
+		contentPane.add(textFieldLogin);
+		textFieldLogin.setColumns(10);
+                
+                textFieldLogin = new JTextField();
+		textFieldLogin.setBounds(87, 31, 134, 28);
+		contentPane.add(textFieldLogin);
+		textFieldLogin.setColumns(10);
+                
 		textPane = new JTextPane();
 		textPane.setToolTipText("Panel para mostrar el restultado de la comprobaci\u00F3n de login o las excepciones lanzadas");
 		textPane.setEditable(false);
@@ -99,12 +119,12 @@ public class IUAdministracion extends JFrame {
 				//Se deber‡ reportar en el panel de estado el resultado de la inserci—n. Tanto su exito
 				//como cualquier excepci—n que pueda surgir.
 				
-				String Login = textFieldLogin.getText();
-				String Password =  textFieldPassword.getText();
-                                String DNI =  textFieldPassword.getText();
-                                String Nombre =  textFieldPassword.getText();
-                                String Permission =  textFieldPassword.getText();
-                                int Permiso=Integer.parseInt(Permission);
+				String Login = "Juan";//textFieldLogin.getText();
+				String Password = "Juan";// textFieldPassword.getText();
+                                String DNI =  "12345768";//textFieldPassword.getText();
+                                String Nombre =  "Nombre";//textFieldPassword.getText();
+                                //String Permission = textFieldPassword.getText();
+                                int Permiso=3;//Integer.parseInt(Permission);
 				
 				try {
 					 if(Login.equals("") || Password.equals("")){
@@ -113,7 +133,7 @@ public class IUAdministracion extends JFrame {
 						
 					 }else{ 
 						 
-						GestorUsuarios.nuevoUsuario(Login,Password,DNI,Nombre,Permiso);
+						Administrador.nuevoUsuario(Login,Password,DNI,Nombre,Permiso);
 						textPane.setText("Usuario insertado correctamente: Bienvenid@ "+Login);
 						label_1.setForeground(Color.GREEN);
 						IUAutenticacion frame = new IUAutenticacion();

@@ -17,5 +17,12 @@ public class Administrador extends Empleados {
         // TODO - implement Administrador.Otorgarpermiso
         throw new UnsupportedOperationException();
     }
-    
+    public static boolean nuevoUsuario(String Login, String Password, String DNI, String Nombre, int Permiso) throws Exception{
+		boolean insertado = false;
+		
+		Empleados u = new Empleados(Login,Password,DNI,Nombre,Permiso);
+		if(u.insert() ==1)
+			insertado = true;
+		return insertado;		
+    }
 }
