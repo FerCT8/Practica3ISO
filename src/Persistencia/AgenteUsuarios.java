@@ -1,23 +1,40 @@
-package StaticView.Persistencia;
+package Persistencia;
+
+import java.sql.Connection;
+import java.sql.*;
 
 public class AgenteUsuarios {
 
-	/**
-	 * 
-	 * @param SQL
-	 */
-	public void Insert(int SQL) {
-		// TODO - implement AgenteUsuarios.Insert
-		throw new UnsupportedOperationException();
-	}
+    protected static AgenteUsuarios mInstancia = null;
+    protected static Connection mBD;
+    private static String url = null;
+}
 
-	/**
-	 * 
-	 * @param SQL
-	 */
-	public void Select(int SQL) {
-		// TODO - implement AgenteUsuarios.Select
-		throw new UnsupportedOperationException();
-	}
+public static AgenteUsuarios getAgente() throws Exception{
+          if (mInstancia==null){
+          mInstancia=new Agente();
+
+        }
+        return mInstancia;
+     }
+     private void conectar() throws Exception {
+         Class.forName(driver);
+         mBD=DriverManager.getConnection(url);
+    }
+    public void Insert(String SQL) throws SQLException,Exception{
+        conectar();
+    	PreparedStatement stmt = mBD.prepareStatement(SQL);
+    	int res=stmt.executeUpdate();
+    	stmt.close();
+    	desconectar();
+    	return res;
+        
+      
+    }
+
+    public void Select(int SQL) {
+
+        throw new UnsupportedOperationException();
+    }
 
 }
