@@ -1,4 +1,4 @@
-package StaticView.Presentación;
+package Presentacion;
 
 public class IUMantenimiento {
 }

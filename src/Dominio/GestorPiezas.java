@@ -1,4 +1,4 @@
-package StaticView.Dominio;
+package Dominio;
 
 public class GestorPiezas {
 
@@ -12,8 +12,8 @@ public class GestorPiezas {
 		throw new UnsupportedOperationException();
 	}
 
-	public void AñadirPieza() {
-		// TODO - implement GestorPiezas.AñadirPieza
+	public void AnadirPieza() {
+		// TODO - implement GestorPiezas.Aï¿½adirPieza
 		throw new UnsupportedOperationException();
 	}
 

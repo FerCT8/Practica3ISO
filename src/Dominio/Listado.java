@@ -1,4 +1,6 @@
-package StaticView.Dominio;
+package Dominio;
+
+import java.util.ArrayList;
 
 public class Listado {
 
