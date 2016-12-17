@@ -9,7 +9,6 @@ public class AgenteUsuarios {
     protected static Connection mBD;
     private static String url = null;
 }
-//hola fer
 public static AgenteUsuarios getAgente() throws Exception{
           if (mInstancia==null){
           mInstancia=new Agente();
