@@ -13,7 +13,7 @@ public class Administrador extends Empleados {
      *
      * @param ID
      */
-    public void Otorgarpermiso(int ID) {
+    public void Otorgarpermiso() {
         // TODO - implement Administrador.Otorgarpermiso
         throw new UnsupportedOperationException();
     }

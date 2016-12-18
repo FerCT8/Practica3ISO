@@ -8,14 +8,6 @@ public class Listado {
 	private int Cantidad;
 	private ArrayList ListaCompleta;
 
-	public int getFecha() {
-		return this.Fecha;
-	}
-
-	public void setFecha(int Fecha) {
-		this.Fecha = Fecha;
-	}
-
 	public int getCantidad() {
 		return this.Cantidad;
 	}
@@ -26,16 +18,16 @@ public class Listado {
 
 	public ArrayList getListaCompleta() {
 		// TODO - implement Listado.getListaCompleta
-		throw new UnsupportedOperationException();
+		return this.ListaCompleta;
 	}
 
 	/**
 	 * 
 	 * @param ListaCompleta
 	 */
-	public void setListaCompleta(int ListaCompleta) {
+	public void setListaCompleta(ArrayList ListaCompleta) {
 		// TODO - implement Listado.setListaCompleta
-		throw new UnsupportedOperationException();
+		this.ListaCompleta=ListaCompleta;
 	}
 
 }
