@@ -66,7 +66,6 @@ public class Empleados {
     }
 
     public static Empleados read(String login, String password) throws Exception {
-        String l, g;
         Empleados u = null;
         Vector<Object> aux = null;
 

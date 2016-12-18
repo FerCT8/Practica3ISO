@@ -24,7 +24,7 @@ public class Producto {
         this.Nombre = Nombre;
     }
     public static Empleados read(String login, String password) throws Exception {
-        String l, g;
+        
         Empleados u = null;
         Vector<Object> aux = null;
 

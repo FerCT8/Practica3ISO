@@ -4,30 +4,36 @@ import java.util.ArrayList;
 
 public class Listado {
 
-	private int Fecha;
-	private int Cantidad;
-	private ArrayList ListaCompleta;
+    private int Cantidad;
+    private ArrayList ListaCompleta;
 
-	public int getCantidad() {
-		return this.Cantidad;
-	}
+    public Listado(int Cantidad, ArrayList ListaCompleta) {
+        this.Cantidad = Cantidad;
+        this.ListaCompleta = ListaCompleta;
+    }
 
-	public void setCantidad(int Cantidad) {
-		this.Cantidad = Cantidad;
-	}
+    public int getCantidad() {
+        return this.Cantidad;
+    }
 
-	public ArrayList getListaCompleta() {
-		// TODO - implement Listado.getListaCompleta
-		return this.ListaCompleta;
-	}
+    public void setCantidad(int Cantidad) {
+        this.Cantidad = Cantidad;
+    }
 
-	/**
-	 * 
-	 * @param ListaCompleta
-	 */
-	public void setListaCompleta(ArrayList ListaCompleta) {
-		// TODO - implement Listado.setListaCompleta
-		this.ListaCompleta=ListaCompleta;
-	}
+    public ArrayList getListaCompleta() {
+        return this.ListaCompleta;
+    }
+
+    /**
+     *
+     * @param ListaCompleta
+     */
+    public void setListaCompleta(ArrayList ListaCompleta) {
+        // TODO - implement Listado.setListaCompleta
+        this.ListaCompleta = ListaCompleta;
+    }
+    public String toString(){
+        String mensaje "-" +this.ListaCompleta;
+    }
 
 }
