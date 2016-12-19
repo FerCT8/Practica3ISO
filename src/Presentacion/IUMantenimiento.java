@@ -30,7 +30,7 @@ public class IUMantenimiento extends JFrame {
 
     public IUMantenimiento() {
 
-        setTitle("Inserte un objeto");
+        setTitle("IUMAN-Inserte una pieza");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 420, 285);
         contentPane = new JPanel();
@@ -71,6 +71,7 @@ public class IUMantenimiento extends JFrame {
 
         JButton btnIntroducir = new JButton("Introducir");
         JButton btnComprobar = new JButton("Comprobar");
+        
         btnIntroducir.addActionListener(new ActionListener() {
 
             public void actionPerformed(ActionEvent arg0) {
@@ -90,7 +91,7 @@ public class IUMantenimiento extends JFrame {
                     }
 
                 } catch (Exception e) {
-                    textPane.setText("No se ha podido insertar la pieza " + e);
+                    textPane.setText("Error,pieza no insertada " + e);
                     label_1.setForeground(Color.RED);
 
                 }
@@ -106,20 +107,23 @@ public class IUMantenimiento extends JFrame {
 
                 try {
                     if (GestorListado.ComprobarEnLista(Codigo, Nombre) == true) {
-                        textPane.setText("Pieza existente en BBDD");
+                        textPane.setText("Esta pieza existente en BBDD");
                         label_1.setForeground(Color.GREEN);
+                    }else {
+                        textPane.setText("No se ha encontrar la pieza");
+                        label_1.setForeground(Color.RED);
                     }
                 } catch (Exception e) {
-                    textPane.setText("No se ha podido insertar la pieza " + e);
+                    textPane.setText("Error " + e);
                     label_1.setForeground(Color.RED);
 
                 }
             }
         });
 
-        btnIntroducir.setBounds(253, 76, 117, 29);
+        btnIntroducir.setBounds(253, 0, 117, 29);
         contentPane.add(btnIntroducir);
-        btnComprobar.setBounds(253, 120, 117, 29);
+        btnComprobar.setBounds(253, 30, 117, 29);
         contentPane.add(btnComprobar);
 
     }

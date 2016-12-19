@@ -28,7 +28,7 @@ public class IUVentas extends JFrame {
 
     public IUVentas() {
 
-        setTitle("Inserte un objeto");
+        setTitle("IUVENTAS-Inserte un producto");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 420, 285);
         contentPane = new JPanel();
@@ -44,11 +44,6 @@ public class IUVentas extends JFrame {
         JLabel lblNombre = new JLabel("NOMBRE");
         lblNombre.setBounds(6, 30, 69, 16);
         contentPane.add(lblNombre);
-
-        JLabel label_1 = new JLabel("Estado");
-        label_1.setForeground(Color.RED);
-        label_1.setBounds(6, 160, 61, 16);
-        contentPane.add(label_1);
 
         //ESTO ES LO DE LAS VENTANAS
         textFieldCodigo = new JTextField();
@@ -83,14 +78,10 @@ public class IUVentas extends JFrame {
                     } else {
                         GestorPiezas.nuevoPieza(Codigo, Nombre);
                         textPane.setText("Pieza insertada con exito datos: " + Codigo + " " + Nombre);
-                        label_1.setForeground(Color.GREEN);
-
                     }
 
                 } catch (Exception e) {
-                    textPane.setText("No se ha podido insertar la pieza " + e);
-                    label_1.setForeground(Color.RED);
-
+                    textPane.setText("Error, producto no insertado" + e);
                 }
             }
         });
@@ -103,20 +94,20 @@ public class IUVentas extends JFrame {
 
                 try {
                     if (GestorListado.ComprobarEnLista(Codigo, Nombre) == true) {
-                        textPane.setText("Producto existente en BBDD");
-                        label_1.setForeground(Color.GREEN);
+                        textPane.setText("Este producto existente en BBDD");
+                    }else {
+                        textPane.setText("No se ha podido encontrar la pieza");
                     }
                 } catch (Exception e) {
-                    textPane.setText("No se ha podido insertar la pieza " + e);
-                    label_1.setForeground(Color.RED);
+                    textPane.setText("Error " + e);
 
                 }
             }
         });
 
-        btnIntroducir.setBounds(253, 76, 117, 29);
+        btnIntroducir.setBounds(253, 0, 117, 29);
         contentPane.add(btnIntroducir);
-        btnComprobar.setBounds(253, 120, 117, 29);
+        btnComprobar.setBounds(253, 30, 117, 29);
         contentPane.add(btnComprobar);
 
     }

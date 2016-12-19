@@ -32,9 +32,9 @@ public class IUGeneral extends JFrame{
 		contentPane.setLayout(null);
 		
 		
-		JLabel label_1 = new JLabel("Estado");
+		JLabel label_1 = new JLabel("Lista");
 		label_1.setForeground(Color.RED);
-		label_1.setBounds(6, 160, 61, 16);
+		label_1.setBounds(6, 130, 61, 16);
 		contentPane.add(label_1);
                 
 		textPane = new JTextPane();

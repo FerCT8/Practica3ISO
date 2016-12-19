@@ -53,11 +53,6 @@ public class IUAdministracion extends JFrame {
         lblPermiso.setBounds(6, 120, 69, 16);
         contentPane.add(lblPermiso);
 
-        JLabel label_1 = new JLabel("Estado");
-        label_1.setForeground(Color.RED);
-        label_1.setBounds(6, 160, 61, 16);
-        contentPane.add(label_1);
-
         textFieldLogin = new JTextField();
         textFieldLogin.setBounds(87, 0, 134, 28);
         contentPane.add(textFieldLogin);
@@ -113,16 +108,12 @@ public class IUAdministracion extends JFrame {
                     } else {
 
                         Administrador.nuevoUsuario(Login, Password, DNI, Nombre, Permiso);
-                        textPane.setText("Usuario insertado correctamente: Bienvenid@ " + Login);
-                        label_1.setForeground(Color.GREEN);
-                        IUAutenticacion frame = new IUAutenticacion();
-                        frame.setVisible(true);
+                        textPane.setText("Usuario insertado correctamente: Bienvenid@ " + Login);;
                     }
 
                 } catch (Exception e) {
 
                     textPane.setText("No se ha podido insertar el usuario " + e);
-                    label_1.setForeground(Color.RED);
                 }
             }
         });

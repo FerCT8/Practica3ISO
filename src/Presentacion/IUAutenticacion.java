@@ -24,7 +24,7 @@ import javax.swing.JTextPane;
 public class IUAutenticacion extends JFrame {
 
     private JPanel contentPane;
-     
+
     private JTextField textFieldLog;
     private JTextField textFieldPass;
     private JTextPane textPaneEstado;
@@ -84,6 +84,11 @@ public class IUAutenticacion extends JFrame {
         textFieldLog.setColumns(10);
         contentPane.add(textFieldLog);
 
+        IUAdministracion frame1 = new IUAdministracion();
+        IUMantenimiento frame2 = new IUMantenimiento();
+        IUVentas frame3 = new IUVentas();
+        IUGeneral frame4 = new IUGeneral();
+        
         JButton buttonAceptar = new JButton("Aceptar");
         buttonAceptar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent arg0) {
@@ -95,19 +100,19 @@ public class IUAutenticacion extends JFrame {
                         textPaneEstado.setText("Login Correcto: Bienvenid@ " + login);
                         lblEstado.setForeground(Color.GREEN);
                         int AbrirVenta = Empleados.read(login, pass).getPermiso();
-                        switch(AbrirVenta){
+                        switch (AbrirVenta) {
                             case 1:
-                                IUAdministracion frame1 = new IUAdministracion();
                                 frame1.setVisible(true);
+                                break;
                             case 2:
-                                IUMantenimiento frame2 = new IUMantenimiento();
                                 frame2.setVisible(true);
+                                break;
                             case 3:
-                                IUVentas frame3 = new IUVentas();
                                 frame3.setVisible(true);
+                                break;
                             default:
-                                IUGeneral frame4 = new IUGeneral();
                                 frame4.setVisible(true);
+                                break;
                         }
 
                     } else {
@@ -156,16 +161,15 @@ public class IUAutenticacion extends JFrame {
         contentPane.add(buttonLimpiar);
 
         /*JButton btnNuevoUsuario = new JButton("Nuevo Usuario");
-        btnNuevoUsuario.addActionListener(new ActionListener() {
+         btnNuevoUsuario.addActionListener(new ActionListener() {
 
-            public void actionPerformed(ActionEvent arg0) {
-                IUAdministracion frame = new IUAdministracion();
-                frame.setVisible(true);
-            }
-        });
-        btnNuevoUsuario.setBounds(264, 166, 117, 29);
-        contentPane.add(btnNuevoUsuario);*/
-
+         public void actionPerformed(ActionEvent arg0) {
+         IUAdministracion frame = new IUAdministracion();
+         frame.setVisible(true);
+         }
+         });
+         btnNuevoUsuario.setBounds(264, 166, 117, 29);
+         contentPane.add(btnNuevoUsuario);*/
         JScrollPane scrollPaneSalida = new JScrollPane();
         scrollPaneSalida.setToolTipText("Este panel mostrar\u00E1 el resultado de la consulta, las excepciones o cualquier otro resultado");
         scrollPaneSalida.setBounds(6, 199, 407, 102);
