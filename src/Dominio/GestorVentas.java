@@ -21,8 +21,8 @@ public class GestorVentas {
         public static boolean nuevoPieza(String Codigo, String Nombre) throws Exception {
         boolean insertado = false;
 
-        Producto u = new Producto(Codigo, Nombre);
-        if (u.insert() == 1) {
+        Producto p = new Producto(Codigo, Nombre);
+        if (p.insert() == 1) {
             insertado = true;
         }
         return insertado;

@@ -1,5 +1,6 @@
 package Presentacion;
 
+import Dominio.GestorPiezas;
 import Dominio.Piezas;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -68,17 +69,21 @@ public class IUMantenimiento extends JFrame {
         JButton btnIntroducir = new JButton("Introducir");
         JButton btnComprobar = new JButton("Comprobar");
         btnIntroducir.addActionListener(new ActionListener() {
+            
             public void actionPerformed(ActionEvent arg0) {
 
                 String Codigo = textFieldCodigo.getText();
                 String Nombre = textFieldNombre.getText();
 
                 try {
-                     if(Codigo=="" || Nombre==""){
+                     if(Codigo.equals("")|| Nombre.equals("")){
                          
-                         textPane.setText("Inserte una nueva pieza con su correspondiente nombre");
+                         textPane.setText("Inserte una nueva pieza con su correspondiente codigo y nombre");
                      }else{
-                         Piezas
+                         GestorPiezas.nuevoPieza(Codigo, Nombre);
+                         textPane.setText("Pieza insertada con exito datos: "+Codigo+" "+Nombre);
+                         label_1.setForeground(Color.GREEN);
+                         
                          
                      }
 

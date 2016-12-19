@@ -8,7 +8,7 @@ public class Listado {
 
     private int Cantidad;
     private String Codigo;
-     private String Nombre;
+    private String Nombre;
 
      
     public Listado(int Cantidad,String Codigo, String Nombre) {
@@ -22,6 +22,21 @@ public class Listado {
         this.Codigo=Codigo;
         this.Nombre=Nombre;
         
+    }
+     public String getCodigo() {
+        return this.Codigo;
+    }
+
+    public void setCodigo(String Codigo) {
+        this.Codigo = Codigo;
+    }
+
+    public String getNombre() {
+        return this.Nombre;
+    }
+
+    public void setNombre(String Nombre) {
+        this.Nombre = Nombre;
     }
     public int getCantidad() {
         return this.Cantidad;
@@ -37,17 +52,7 @@ public class Listado {
         return mensaje;
     }
 
-    
-     public int insert() throws Exception {
-
-        String SQL_Consulta = "INSERT INTO practica3db.productos VALUES('" + this.Codigo + "','" + this.Nombre + "')";
-
-        AgenteListado a = AgenteListado.getAgente();
-
-        a.Insert(SQL_Consulta);
-
-        return 1;
-    }
+     
      public static Producto read(String Codigo, String Nombre) throws Exception {
 
         Producto u = null;

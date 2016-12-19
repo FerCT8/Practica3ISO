@@ -3,39 +3,20 @@ package Dominio;
 import Persistencia.AgenteListado;
 import java.util.Vector;
 
-public class Piezas extends Listado{
-
-    private int Codigo;
-    private int Nombre;
+public class Piezas extends Listado {
 
     Piezas(String Codigo, String Nombre) {
-        super(Codigo,Nombre);
-        throw new UnsupportedOperationException("Not supported yet."); 
+        super(Codigo, Nombre);
     }
 
-    public int getCodigo() {
-        return this.Codigo;
+    public int insert() throws Exception {
+
+        String SQL_Consulta = "INSERT INTO practica3db.productos VALUES('" + getCodigo() + "','" + getNombre() + "')";
+
+        AgenteListado a = AgenteListado.getAgente();
+
+        a.Insert(SQL_Consulta);
+
+        return 1;
     }
-
-    public void setCodigo(int Codigo) {
-        this.Codigo = Codigo;
-    }
-
-    public int getNombre() {
-        return this.Nombre;
-    }
-
-    public void setNombre(int Nombre) {
-        this.Nombre = Nombre;
-    }
-
-  
-
-    @Override
-    public String toString() {
-
-        String mensaje = "Codigo: " + this.Codigo + "-Nombre: " + this.Nombre;
-        return mensaje;
-    }
-
 }
