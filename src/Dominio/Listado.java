@@ -70,5 +70,18 @@ public class Listado {
         }
         return u;
     }
+     public static Producto Mostrar() throws Exception {
+        Producto u = null;
+        Vector<Object> aux = null;
+
+        String SQL_Consulta = "SELECT * FROM practica3db.productos";
+
+        AgenteListado a= AgenteListado.getAgente();;
+
+        while(a.equals(null)){
+         u = new Producto((String) aux.elementAt(0), (String) aux.elementAt(1));
+        }
+        return u;
+    }
     
 }

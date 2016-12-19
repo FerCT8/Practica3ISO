@@ -7,7 +7,7 @@ public class GestorListado {
         throw new UnsupportedOperationException();
     }
 
-      public static boolean ComprobarEnLista(String Codigo, String Nombre) throws Exception {
+    public static boolean ComprobarEnLista(String Codigo, String Nombre) throws Exception {
         boolean autenticado = false;
         if (Listado.read(Codigo, Nombre) != null) {
             autenticado = true;
