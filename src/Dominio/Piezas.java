@@ -3,13 +3,14 @@ package Dominio;
 import Persistencia.AgenteListado;
 import java.util.Vector;
 
-public class Piezas {
+public class Piezas extends Listado{
 
     private int Codigo;
     private int Nombre;
 
     Piezas(String Codigo, String Nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        super(Codigo,Nombre);
+        throw new UnsupportedOperationException("Not supported yet."); 
     }
 
     public int getCodigo() {
@@ -28,34 +29,8 @@ public class Piezas {
         this.Nombre = Nombre;
     }
 
-    public static Empleados read(String login, String password) throws Exception {
-        String l, g;
-        Empleados u = null;
-        Vector<Object> aux = null;
+  
 
-        String SQL_Consulta = "SELECT * FROM practica3db.empleados WHERE Login = '" + login + "' AND Password = '" + password + "';";
-
-        AgenteListado a = AgenteListado.getAgente();
-
-        Vector<Object> res = a.select(SQL_Consulta);
-
-        if (res.size() == 1) {
-            aux = (Vector<Object>) res.elementAt(0);
-            u = new Empleados((String) aux.elementAt(0), (String) aux.elementAt(1), (String) aux.elementAt(2), (String) aux.elementAt(3), (int) aux.elementAt(4));
-        }
-        return u;
-    }
-
-   
-    
-       public static boolean nuevoPieza(String Codigo, String Nombre) throws Exception{
-		boolean insertado = false;
-		
-		Piezas u = new Piezas(Codigo,Nombre);
-		if(u.insert() ==1)
-			insertado = true;
-		return insertado;		
-    }
     @Override
     public String toString() {
 

@@ -12,27 +12,17 @@ public class GestorPiezas {
         throw new UnsupportedOperationException();
     }
 
-    public void AnadirPieza(String Codigo, String Nombre) {
 
-		//AQUI SUPONGO QUE VA LA SENTENCIA DE INSERTAR PERO NO LO SE
-        //PREGUNTAR A FERNANDO Y PREGUNTARLE LO DE LA SENTENCIA
-        throw new UnsupportedOperationException();
-    }
 
-    public void ActualizarLista() {
-        // TODO - implement GestorPiezas.ActualizarLista
-        throw new UnsupportedOperationException();
-    }
 
-    public Piezas ComprobarPiezas(String login, String password) throws Exception {
+    public static boolean nuevoPieza(String Codigo, String Nombre) throws Exception {
+        boolean insertado = false;
 
-        Piezas e = null;
-        if (Piezas.read(login, password) != null) {
-            e = new Piezas(login, password);
+        Piezas u = new Piezas(Codigo, Nombre);
+        if (u.insert() == 1) {
+            insertado = true;
         }
-    
-        return e;
-
+        return insertado;
     }
 
 }
