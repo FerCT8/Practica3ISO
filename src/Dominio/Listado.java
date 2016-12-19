@@ -33,7 +33,8 @@ public class Listado {
         this.ListaCompleta = ListaCompleta;
     }
     public String toString(){
-        String mensaje "-" +this.ListaCompleta;
+        String mensaje = "-" +this.ListaCompleta;
+        return mensaje;
     }
 
 }
