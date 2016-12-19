@@ -8,6 +8,10 @@ public class Piezas {
     private int Codigo;
     private int Nombre;
 
+    Piezas(String Codigo, String Nombre) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getCodigo() {
         return this.Codigo;
     }
@@ -52,6 +56,7 @@ public class Piezas {
 
         return 1;
     }
+    
     
     @Override
     public String toString() {

@@ -24,6 +24,7 @@ import javax.swing.JTextPane;
 public class IUAutenticacion extends JFrame {
 
     private JPanel contentPane;
+     
     private JTextField textFieldLog;
     private JTextField textFieldPass;
     private JTextPane textPaneEstado;
@@ -99,7 +100,7 @@ public class IUAutenticacion extends JFrame {
                                 IUAdministracion frame1 = new IUAdministracion();
                                 frame1.setVisible(true);
                             case 2:
-                                IUMantenimiento frame2 = new IUMantenimiento());
+                                IUMantenimiento frame2 = new IUMantenimiento();
                                 frame2.setVisible(true);
                             case 3:
                                 IUVentas frame3 = new IUVentas();
