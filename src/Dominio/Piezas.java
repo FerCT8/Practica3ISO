@@ -46,18 +46,16 @@ public class Piezas {
         return u;
     }
 
-    public int insert() throws Exception {
-
-        String SQL_Consulta = "INSERT INTO practica3db.empleados VALUES('" + this.Codigo + "','" + this.Nombre + "')";
-
-        AgenteListado a = AgenteListado.getAgente();
-
-        a.Insert(SQL_Consulta);
-
-        return 1;
+   
+    
+       public static boolean nuevoPieza(String Codigo, String Nombre) throws Exception{
+		boolean insertado = false;
+		
+		Piezas u = new Piezas(Codigo,Nombre);
+		if(u.insert() ==1)
+			insertado = true;
+		return insertado;		
     }
-    
-    
     @Override
     public String toString() {
 

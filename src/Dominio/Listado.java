@@ -37,4 +37,16 @@ public class Listado {
         return mensaje;
     }
 
+    
+     public int insert() throws Exception {
+
+        String SQL_Consulta = "INSERT INTO practica3db.empleados VALUES('" + this.Codigo + "','" + this.Nombre + "')";
+
+        AgenteListado a = AgenteListado.getAgente();
+
+        a.Insert(SQL_Consulta);
+
+        return 1;
+    }
+    
 }
