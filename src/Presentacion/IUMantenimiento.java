@@ -1,6 +1,9 @@
 package Presentacion;
 
+import Dominio.GestorAcceso;
+import Dominio.GestorListado;
 import Dominio.GestorPiezas;
+import Dominio.Listado;
 import Dominio.Piezas;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -69,27 +72,46 @@ public class IUMantenimiento extends JFrame {
         JButton btnIntroducir = new JButton("Introducir");
         JButton btnComprobar = new JButton("Comprobar");
         btnIntroducir.addActionListener(new ActionListener() {
-            
+
             public void actionPerformed(ActionEvent arg0) {
 
                 String Codigo = textFieldCodigo.getText();
                 String Nombre = textFieldNombre.getText();
 
                 try {
-                     if(Codigo.equals("")|| Nombre.equals("")){
-                         
-                         textPane.setText("Inserte una nueva pieza con su correspondiente codigo y nombre");
-                     }else{
-                         GestorPiezas.nuevoPieza(Codigo, Nombre);
-                         textPane.setText("Pieza insertada con exito datos: "+Codigo+" "+Nombre);
-                         label_1.setForeground(Color.GREEN);
-                         
-                         
-                     }
+                    if (Codigo.equals("") || Nombre.equals("")) {
+
+                        textPane.setText("Inserte una nueva pieza con su correspondiente codigo y nombre");
+                    } else {
+                        GestorPiezas.nuevoPieza(Codigo, Nombre);
+                        textPane.setText("Pieza insertada con exito datos: " + Codigo + " " + Nombre);
+                        label_1.setForeground(Color.GREEN);
+
+                    }
 
                 } catch (Exception e) {
-                    textPane.setText("No se ha podido insertar la pieza "+e);	
-						label_1.setForeground(Color.RED);
+                    textPane.setText("No se ha podido insertar la pieza " + e);
+                    label_1.setForeground(Color.RED);
+
+                }
+            }
+        });
+
+        btnComprobar.addActionListener(new ActionListener() {
+
+            public void actionPerformed(ActionEvent arg0) {
+
+                String Codigo = textFieldCodigo.getText();
+                String Nombre = textFieldNombre.getText();
+
+                try {
+                    if (GestorListado.ComprobarEnLista(Codigo, Nombre) == true) {
+                        textPane.setText("Pieza existente en BBDD");
+                        label_1.setForeground(Color.GREEN);
+                    }
+                } catch (Exception e) {
+                    textPane.setText("No se ha podido insertar la pieza " + e);
+                    label_1.setForeground(Color.RED);
 
                 }
             }

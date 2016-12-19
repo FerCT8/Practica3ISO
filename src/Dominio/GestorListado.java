@@ -7,14 +7,12 @@ public class GestorListado {
         throw new UnsupportedOperationException();
     }
 
-    public Producto ComprobaProductos(String Codigo, String Nombre) throws Exception {
-
-        Producto p = null;
-        if (Producto.read(Codigo, Nombre) != null) {
-            p = new Producto(Codigo, Nombre);
+      public static boolean ComprobarEnLista(String Codigo, String Nombre) throws Exception {
+        boolean autenticado = false;
+        if (Listado.read(Codigo, Nombre) != null) {
+            autenticado = true;
         }
-        return p;
-
+        return autenticado;
     }
 
     public void EliminarElemento() {
